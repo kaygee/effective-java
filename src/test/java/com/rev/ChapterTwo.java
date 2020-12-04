@@ -133,4 +133,16 @@ public class ChapterTwo {
             Pizza.Topping.RED_SAUCE);
     assertThat(smallHawaiianPizza.getSize()).isEqualTo(SMALL);
   }
+
+  @Test
+  public void privateConstructorSingletonExample() {
+    assertThat(SingletonPattern.INSTANCE.getValue())
+        .isEqualTo(SingletonPattern.PRIVATE_CONSTRUCTOR);
+  }
+
+  @Test
+  public void staticFactorySingletonExample() {
+    assertThat(SingletonPattern.getInstance().getValue())
+        .isEqualTo(SingletonPattern.STATIC_FACTORY);
+  }
 }
