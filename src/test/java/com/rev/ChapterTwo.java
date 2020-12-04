@@ -42,6 +42,7 @@ public class ChapterTwo {
     assertThat(multiply.getProduct()).isEqualTo(3 * 2);
   }
 
+  /** Page 10. */
   @Test
   public void telescopingConstructorExample() {
     int first = 1;
@@ -65,6 +66,7 @@ public class ChapterTwo {
     assertThat(thirdTelescopingConstructor.getThird()).isEqualTo(third);
   }
 
+  /** Page 11. */
   @Test
   public void javaBeanPatternExample() {
     int first = 1;
@@ -93,7 +95,7 @@ public class ChapterTwo {
     assertThat(thirdJavaBeanPattern.getThird()).isEqualTo(third);
   }
 
-  /** Item 2. Consider a builder when faced with many constructor parameters. */
+  /** Item 2. Page 13. Consider a builder when faced with many constructor parameters. */
   @Test
   public void builderPatternExample() {
     int first = 1;
@@ -120,9 +122,9 @@ public class ChapterTwo {
     assertThat(thirdBuilderPattern.getThird()).isEqualTo(third);
   }
 
-  /** Item 2. Consider a builder when faced with many constructor parameters. */
+  /** Item 2. Page 14. Consider a builder when faced with many constructor parameters. */
   @Test
-  public void classHiearchyBuilderPatternExample() {
+  public void classHierarchyBuilderPatternExample() {
     Hawaiian smallHawaiianPizza =
         new Hawaiian.Builder(SMALL)
             .addTopping(Pizza.Topping.HAM)
@@ -139,27 +141,27 @@ public class ChapterTwo {
     assertThat(smallHawaiianPizza.getSize()).isEqualTo(SMALL);
   }
 
-  /** Item 3. Enforce the singleton property with a private constructor or an enum type. */
+  /** Item 3. Page 17. Enforce the singleton property with a private constructor or an enum type. */
   @Test
   public void privateConstructorSingletonExample() {
     assertThat(SingletonPattern.INSTANCE.getValue())
         .isEqualTo(SingletonPattern.PRIVATE_CONSTRUCTOR);
   }
 
-  /** Item 3. Enforce the singleton property with a private constructor or an enum type. */
+  /** Item 3. Page 17. Enforce the singleton property with a private constructor or an enum type. */
   @Test
   public void staticFactorySingletonExample() {
     assertThat(SingletonPattern.getInstance().getValue())
         .isEqualTo(SingletonPattern.STATIC_FACTORY);
   }
 
-  /** Item 4: Enforce non-instantiability with a private constructor. */
+  /** Item 4: Page 19. Enforce non-instantiability with a private constructor . */
   @Test
   public void noninstantiationExample() {
     assertThat(NonInstantiation.getSomething()).isEqualTo(NonInstantiation.CONSTANT);
   }
 
-  /** Item 6: Avoid creating unnecessary objects. */
+  /** Item 6: Page 22. Avoid creating unnecessary objects. */
   @Test
   public void avoidCreatingUnnecessaryObjects() {
     String ungood = new String("not necessary");
