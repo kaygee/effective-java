@@ -1,5 +1,6 @@
 package com.rev;
 
+import com.NonInstantiation;
 import org.junit.Test;
 
 import static com.rev.Hawaiian.Size.SMALL;
@@ -9,6 +10,7 @@ public class ChapterTwo {
 
   private static final int DEFAULT = 0;
 
+  /** Item 1: Consider static factory methods instead of constructors. */
   @Test
   public void canGetStringUsingConstructor() {
     // Constructors don't have meaningful names.
@@ -17,6 +19,7 @@ public class ChapterTwo {
     assertThat(value.toString()).isEqualTo(value);
   }
 
+  /** Item 1: Consider static factory methods instead of constructors. */
   @Test
   public void canGetStringUsingStaticFactory() {
     // Static factories have names (valueOf).
@@ -90,6 +93,7 @@ public class ChapterTwo {
     assertThat(thirdJavaBeanPattern.getThird()).isEqualTo(third);
   }
 
+  /** Item 2. Consider a builder when faced with many constructor parameters. */
   @Test
   public void builderPatternExample() {
     int first = 1;
@@ -116,6 +120,7 @@ public class ChapterTwo {
     assertThat(thirdBuilderPattern.getThird()).isEqualTo(third);
   }
 
+  /** Item 2. Consider a builder when faced with many constructor parameters. */
   @Test
   public void classHiearchyBuilderPatternExample() {
     Hawaiian smallHawaiianPizza =
@@ -134,15 +139,31 @@ public class ChapterTwo {
     assertThat(smallHawaiianPizza.getSize()).isEqualTo(SMALL);
   }
 
+  /** Item 3. Enforce the singleton property with a private constructor or an enum type. */
   @Test
   public void privateConstructorSingletonExample() {
     assertThat(SingletonPattern.INSTANCE.getValue())
         .isEqualTo(SingletonPattern.PRIVATE_CONSTRUCTOR);
   }
 
+  /** Item 3. Enforce the singleton property with a private constructor or an enum type. */
   @Test
   public void staticFactorySingletonExample() {
     assertThat(SingletonPattern.getInstance().getValue())
         .isEqualTo(SingletonPattern.STATIC_FACTORY);
+  }
+
+  /** Item 4: Enforce non-instantiability with a private constructor. */
+  @Test
+  public void noninstantiationExample() {
+    assertThat(NonInstantiation.getSomething()).isEqualTo(NonInstantiation.CONSTANT);
+  }
+
+  /** Item 6: Avoid creating unnecessary objects. */
+  @Test
+  public void avoidCreatingUnnecessaryObjects() {
+    String ungood = new String("not necessary");
+
+    String better = "better";
   }
 }
